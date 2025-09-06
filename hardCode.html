@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rive Example</title>
+  <!-- <script src="https://unpkg.com/@rive-app/webgl"></script> -->
+</head>
+<body>
+  <h2>Rive Animation Test</h2>
+  <script src="https://unpkg.com/@rive-app/canvas"></script>
+  
+  <!-- <canvas id="riveCanvas" width="500" height="500"></canvas> -->
+  <canvas id="riveCanvas1" width="500" height="500"></canvas>
+  <canvas id="riveCanvas2" width="500" height="500"></canvas>
+  <canvas id="riveCanvas3" width="500" height="500"></canvas>
+
+<script>
+  // const r = new rive.Rive({
+  //   src: "https://cdn.rive.app/animations/vehicles.riv",
+  //   // src: "zero_man_wave.riv",
+  //   canvas: document.getElementById("riveCanvas"),
+  //   autoplay: true,
+  //   onLoad: () => { r.resizeDrawingSurfaceToCanvas(); }
+  // });
+  const r1 = new rive.Rive({
+    src: "./assets/oneWave.riv",
+    canvas: document.getElementById("riveCanvas1"),
+    autoplay: true,
+    onLoad: () => { r1.resizeDrawingSurfaceToCanvas(); }
+  });
+  const r2 = new rive.Rive({
+    src: "./assets/twoWave.riv",
+    canvas: document.getElementById("riveCanvas2"),
+    autoplay: true,
+    onLoad: () => { r2.resizeDrawingSurfaceToCanvas(); }
+  });
+  const r3 = new rive.Rive({
+    src: "./assets/embarrassed.riv",
+    canvas: document.getElementById("riveCanvas3"),
+    autoplay: true,
+    onLoad: () => { r3.resizeDrawingSurfaceToCanvas(); }
+  });
+</script>
+
+</body>
+</html>
