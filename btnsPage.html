@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Rive Button</title>
+  <script src="https://unpkg.com/@rive-app/canvas@2.14.0"></script>
+  <!-- <style> </style> -->
+   <link rel="stylesheet" href="Two.css">
+</head>
+<body>
+  <h1>Responsive Rive Button:</h1>
+
+  <button id="riveButton3">
+    <canvas id="riveCanvas3"></canvas>
+    <!-- <span>Settings</span> -->
+  </button>
+
+  <script>
+    const canvas = document.getElementById("riveCanvas3");
+    const btn = document.getElementById("riveButton3");
+
+    const r3 = new rive.Rive({
+      src: "./assets/settings2.riv",
+      canvas: canvas,
+      autoplay: true,
+      fit: rive.Fit.CONTAIN,  // ✅ keeps aspect ratio inside the button
+      alignment: rive.Alignment.CENTER,
+      onLoad: () => {
+        r3.resizeDrawingSurfaceToCanvas();
+      }
+    });
+
+    // Resize animation dynamically when button size changes
+    const resizeObserver = new ResizeObserver(() => r3.resizeDrawingSurfaceToCanvas());
+    resizeObserver.observe(btn);
+
+    btn.addEventListener("click", () => alert("Rive button clicked! \n Settings opened"));
+  </script>
+</body>
+</html>
