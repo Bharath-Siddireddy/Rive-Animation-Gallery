@@ -7,10 +7,11 @@ body {
 
 h1 {
     margin-bottom: 30px;
+    /* font-size: 2.5rem; */
 }
 
 /* Make button flexible and proportional */
-#riveButton3 {
+.riveButton {
     background-color: transparent;
     border: none;
     border-radius: 12px;
@@ -25,13 +26,13 @@ h1 {
     transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-#riveButton3:hover {
+.riveButton:hover {
     transform: scale(1.05);
     background-color: rgba(0, 255, 255, 0.15);
 }
 
 /* Canvas absolutely fills button */
-#riveCanvas3 {
+.riveButtonCanvas {
     position: absolute;
     top: 0;
     left: 0;
@@ -43,7 +44,7 @@ h1 {
 }
 
 /* Optional label on top of animation */
-#riveButton3 span {
+.riveButton span {
     position: relative;
     z-index: 1;
     color: #000;
