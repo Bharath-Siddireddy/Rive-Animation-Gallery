@@ -13,8 +13,9 @@ h1 {
 /* Make button flexible and proportional */
 .riveButton {
     background-color: transparent;
-    border: none;
+    /* border: none; */
     border-radius: 12px;
+    border-width: 1px;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
@@ -27,7 +28,7 @@ h1 {
 }
 
 .riveButton:hover {
-    transform: scale(1.05);
+    transform: scale(0.90);
     background-color: rgba(0, 255, 255, 0.15);
 }
 
