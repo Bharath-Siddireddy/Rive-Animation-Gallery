@@ -27,21 +27,33 @@
 <body>
     <h1>Rive Animation Gallery:</h1>
     <button id="mascot_Page">BeingZero Pvt Ltd Mascot</button>
-    <button id="buttons_Page">Animated buttons</button>
     <button id="others_Page">Other animations</button>
+
+    <button id="buttons_Page">Animated buttons</button>
+    <button id="inputAnimations_Page">Input controlled animations</button>
+
+
     <script>
         const mascotBtn = document.getElementById('mascot_Page');
-        const btnsPageBtn = document.getElementById('buttons_Page');
         const othersBtn = document.getElementById('others_Page');
+        const btnsPageBtn = document.getElementById('buttons_Page');
+        const inputAniBtn = document.getElementById('inputAnimations_Page');
+
+        
         mascotBtn.addEventListener('click', () => {
             window.location.href = './pages/mascot.html';
-        });
-        btnsPageBtn.addEventListener('click', () => {
-            window.location.href = './pages/btnsPage.html';
         });
         othersBtn.addEventListener('click', () => {
             window.location.href = './pages/others.html';
         });
+        btnsPageBtn.addEventListener('click', () => {
+            window.location.href = './pages/btnsPage.html';
+        });
+        inputAniBtn.addEventListener('click', () => {
+            window.location.href = './pages/inputAnimations.html';
+        });
+
+
     </script>
 </body>
 </html>

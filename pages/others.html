@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rive Animation Gallery</title>
+  <title>BeingZero Mascot</title>
   <script src="https://unpkg.com/@rive-app/canvas"></script>
-  <link rel="stylesheet" href="others.css">
   <style>
   body {
     font-family: Arial, sans-serif;
@@ -32,8 +31,7 @@
   canvas {
     width: 100%;          /* scale to grid cell width */
     max-width: 300px;     /* ensures max size */
-    /* height: auto;         maintain aspect ratio */
-    height: 300px;    
+    height: auto;         /* maintain aspect ratio */
     border: 2px solid #ccc;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -43,24 +41,20 @@
 
 </head>
 <body>
-
- 
-
-
-
-  <h1> Keyboard controlled Animation:</h1>
-  
-<h2> Press Spacebar:</h2>
-<div id="riveKeyboardContainer"></div>
+  <h1>B0-9F Animations:</h1>
+  <div id="riveContainer"></div>
 
 <script>
 
   const animations = [
-    // "../assets/settings2.riv",
-    "../assets/settingsTAB.riv",
+    "../assets/settings2.riv",
+    // "../assets/settings_one_gear.riv",
+    "../assets/rain.riv",
+    "../assets/mp-logo.riv",
+    "../assets/neko.riv",
   ];
 
-  const container = document.getElementById("riveKeyboardContainer");
+  const container = document.getElementById("riveContainer");
 
   animations.forEach((src, index) => {
     const canvas = document.createElement("canvas");
@@ -71,37 +65,8 @@
     const riveInstance = new rive.Rive({
       src: src,
       canvas: canvas,
-      stateMachines: ["State Machine 1"],
       autoplay: true,
-      onLoad: () => {
-        riveInstance.resizeDrawingSurfaceToCanvas()
-
-        // new lines from here to add keyboard control
-        const inputs = riveInstance.stateMachineInputs("State Machine 1");
-        // console.log("inputs: ", inputs);
-        // console.log("Inputs found:", inputs.map(i => ({ name: i.name, type: i.type })));
-
-        const tabTrigger = inputs.find(i => i.name === "Trigger 1");
-
-        document.addEventListener("keydown", (e) => { // event - e
-            if(e.key == " ") { // "Tab"
-                e.preventDefault(); // stop tab from changing focus
-
-                if (tabTrigger) {
-                    console.log("Found trigger:", tabTrigger.name);
-                    // Fire it automatically once after 2 seconds to test
-                    // setTimeout(() => {
-                        tabTrigger.fire();
-                    //     console.log("Fired trigger automatically for testing");
-                    // }, 2000);
-                } 
-                else {
-                console.warn("No trigger found named 'Trigger 1'");
-                }
-
-            }
-        })
-      }
+      onLoad: () => riveInstance.resizeDrawingSurfaceToCanvas()
     });
   });
 

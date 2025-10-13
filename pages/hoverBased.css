@@ -7,7 +7,30 @@ body {
 
 h1 {
     margin-bottom: 30px;
+    font-size: 24px;
 }
+
+canvas {
+    width: 100%;          /* scale to grid cell width */
+    max-width: 300px;     /* ensures max size */
+    /* height: auto;         maintain aspect ratio */
+    height: 300px;    
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: white;
+}
+
+#riveContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* max 3 per row */
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
 
 /* Make button flexible and proportional */
 .riveButton {

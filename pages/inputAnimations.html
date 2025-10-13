@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rive Animations</title>
+    <style>
+        button {
+            margin: 20px;
+            padding: 15px 20px;
+            font-size: 18px;
+            border-radius: 8px;
+            border: none;
+            background-color: #0565cc;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0159b7;
+            margin: 22px;
+            padding: 12px 18px;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Rive Animation Gallery:</h1>
+    <button id="hover_Based_Page">Mouse pointer animations</button>
+    <button id="keys_Based_Page">Keyboard based animations</button>
+
+    <script>
+        const keysBasedBtn = document.getElementById('keys_Based_Page');
+        const hoverBasedBtn = document.getElementById('hover_Based_Page');
+        
+        keysBasedBtn.addEventListener('click', () => {
+            window.location.href = './keyboardBased.html';
+        });
+
+        hoverBasedBtn.addEventListener('click', () => {
+            window.location.href = './hoverBased.html';
+        });
+
+    </script>
+</body>
+</html>

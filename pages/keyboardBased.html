@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rive Animation Gallery</title>
+  <script src="https://unpkg.com/@rive-app/canvas"></script>
+  <link rel="stylesheet" href="keyboardBased.css">
+</head>
+<body>
+
+ 
+
+
+
+  <h1> Keyboard controlled Animation:</h1>
+  
+<h2> Press Spacebar:</h2>
+<div id="riveKeyboardContainer"></div>
+
+<script>
+
+  const animations = [
+    // "../assets/settings_hover.riv",
+    // "../assets/settings_hover_v2.riv",
+    "../assets/settingsTAB.riv",
+  ];
+
+  const container = document.getElementById("riveKeyboardContainer");
+
+  animations.forEach((src, index) => {
+    const canvas = document.createElement("canvas");
+    canvas.width = 500;
+    canvas.height = 500;
+    container.appendChild(canvas);
+
+    const riveInstance = new rive.Rive({
+      src: src,
+      canvas: canvas,
+      stateMachines: ["State Machine 1"],
+      autoplay: true,
+      onLoad: () => {
+        riveInstance.resizeDrawingSurfaceToCanvas()
+
+        // new lines from here to add keyboard control
+        const inputs = riveInstance.stateMachineInputs("State Machine 1");
+        // console.log("inputs: ", inputs);
+        // console.log("Inputs found:", inputs.map(i => ({ name: i.name, type: i.type })));
+
+        const tabTrigger = inputs.find(i => i.name === "Trigger 1");
+
+        document.addEventListener("keydown", (e) => { // event - e
+            if(e.key == " ") { // "Tab"
+                e.preventDefault(); // stop tab from changing focus
+
+                if (tabTrigger) {
+                    console.log("Found trigger:", tabTrigger.name);
+                    // Fire it automatically once after 2 seconds to test
+                    // setTimeout(() => {
+                        tabTrigger.fire();
+                    //     console.log("Fired trigger automatically for testing");
+                    // }, 2000);
+                } 
+                else {
+                console.warn("No trigger found named 'Trigger 1'");
+                }
+
+            }
+        })
+      }
+    });
+  });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rive Hover Animation (Boolean)</title>
+  <script src="https://unpkg.com/@rive-app/canvas@2.14.0"></script>
+  <link rel="stylesheet" href="hoverBased.css"> 
+  <!-- <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #121212;
+      } 
+      canvas {
+        width: 200px;
+        height: 200px;
+        cursor: pointer;
+      }
+  </style> -->
+  
+</head>
+<body>
+
+  <canvas id="riveCanvas"></canvas>
+
+  <script>
+    // ---------------- CONFIG ----------------
+    const RIVE_SRC = "../assets/settings_hover_v2.riv";   // Path to your .riv file
+    const STATE_MACHINE = "State Machine 1";           // Exact state machine name
+    const INPUT_NAME = "Boolean 1";                    // Boolean input name
+    // ----------------------------------------
+
+    const canvas = document.getElementById("riveCanvas");
+
+    // Create Rive instance
+    const riveInstance = new rive.Rive({
+      src: RIVE_SRC,
+      canvas: canvas,
+      autoplay: true, // Must stay true for State Machine to process booleans
+      stateMachines: STATE_MACHINE,
+      fit: rive.Fit.CONTAIN,
+      alignment: rive.Alignment.CENTER,
+      onLoad: () => {
+        riveInstance.resizeDrawingSurfaceToCanvas();
+        setupHover();
+      }
+    });
+
+    // Keep canvas in sync with container
+    const resizeObserver = new ResizeObserver(() => {
+      try { riveInstance.resizeDrawingSurfaceToCanvas(); } catch(e) {}
+    });
+    resizeObserver.observe(canvas);
+
+    function setupHover() {
+      const inputs = riveInstance.stateMachineInputs(STATE_MACHINE);
+      const hoverInput = inputs.find(i => i.name === INPUT_NAME);
+
+      if (!hoverInput) {
+        console.error(`Input "${INPUT_NAME}" not found in state machine "${STATE_MACHINE}".`);
+        console.log("Available inputs:", inputs.map(i => i.name));
+        return;
+      }
+
+      console.log(`Found boolean input "${INPUT_NAME}"`);
+
+      canvas.addEventListener("mouseenter", () => {
+        if (!hoverInput) return;
+
+        // Reset the boolean quickly to force re-trigger
+        hoverInput.value = false;   // force transition to idle
+        setTimeout(() => {
+          hoverInput.value = true;  // play hover animation
+        }, 10);  // 10ms delay is enough
+        // console.log("Hover In -> Boolean true (restarted)");
+      });
+
+  canvas.addEventListener("mouseleave", () => {
+    if (!hoverInput) return;
+
+    hoverInput.value = false; // back to idle
+    // console.log("Hover Out -> Boolean false");
+  });
+
+}
+  </script>
+
+</body>
+</html>
