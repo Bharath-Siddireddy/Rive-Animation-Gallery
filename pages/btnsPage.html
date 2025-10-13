@@ -9,6 +9,8 @@
    <link rel="stylesheet" href="btnsPage.css">
 </head>
 <body>
+  <button id="backBtn">Back</button>
+  
   <h1>Responsive Rive Animated Buttons:</h1>
 
   <button class="riveButton" id="riveSimpleButton">
@@ -20,6 +22,13 @@
     <!-- <span>Settings</span> -->
   <!-- </button> -->
 
+    <script>
+        const homePageBtn = document.getElementById('backBtn');
+
+        homePageBtn.addEventListener('click', () => {
+            window.location.href = '../index.html';
+        });
+    </script>
   <script>
     const canvas = document.getElementById("riveSimpleButtonCanvas");
     const btn = document.getElementById("riveSimpleButton");

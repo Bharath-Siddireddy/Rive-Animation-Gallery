@@ -37,13 +37,40 @@
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     background-color: white;
   }
+  button {
+    float: left;
+    margin: -15px;
+    padding: 10px 15px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: none;
+    background-color: #0565cc;
+    color: white;
+    cursor: pointer;
+  }
+
+  button:hover {
+      background-color: #0159b7;
+      margin: -11px;
+      padding: 8px 12px;
+  }
+  
 </style>
 
 </head>
 <body>
+  <button id="backBtn">Back</button>
+
   <h1>B0-9F Animations:</h1>
   <div id="riveContainer"></div>
 
+<script>
+    const homePageBtn = document.getElementById('backBtn');
+
+    homePageBtn.addEventListener('click', () => {
+        window.location.href = '../index.html';
+    });
+</script>
 <script>
 
   const animations = [

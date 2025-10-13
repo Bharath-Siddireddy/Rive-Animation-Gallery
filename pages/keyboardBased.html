@@ -8,18 +8,21 @@
   <link rel="stylesheet" href="keyboardBased.css">
 </head>
 <body>
-
- 
-
-
-
-  <h1> Keyboard controlled Animation:</h1>
+    <button id="backBtn">Back</button>
+    <h1>Keyboard controlled Animation:</h1>
   
-<h2> Press Spacebar:</h2>
-<div id="riveKeyboardContainer"></div>
+    <h3>Press Spacebar to see the magic!</h3>
+    <div id="riveKeyboardContainer"></div>
+    
+  <script>
+    const inputAniBtn = document.getElementById('backBtn');
 
+        inputAniBtn.addEventListener('click', () => {
+            window.location.href = './inputAnimations.html';
+        });
+  </script>
 <script>
-
+  
   const animations = [
     // "../assets/settings_hover.riv",
     // "../assets/settings_hover_v2.riv",

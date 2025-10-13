@@ -25,10 +25,19 @@
     </style>
 </head>
 <body>
-    <h1>Rive Animation Gallery:</h1>
+    <button id="backBtn">Back</button>
+
+    <h1 style="text-align: center;">Explore the input based animations:</h1>
     <button id="hover_Based_Page">Mouse pointer animations</button>
     <button id="keys_Based_Page">Keyboard based animations</button>
 
+    <script>
+        const homePageBtn = document.getElementById('backBtn');
+
+        homePageBtn.addEventListener('click', () => {
+            window.location.href = '../index.html';
+        });
+    </script>
     <script>
         const keysBasedBtn = document.getElementById('keys_Based_Page');
         const hoverBasedBtn = document.getElementById('hover_Based_Page');

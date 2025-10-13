@@ -23,9 +23,19 @@
   
 </head>
 <body>
+  <button id="backBtn">Back</button>
+  <h1>Mouse controlled Animation:</h1>
 
+  <h3>Hover on the desired image to know what happens!</h3>
   <canvas id="riveCanvas"></canvas>
+  
+  <script>
+    const inputAniBtn = document.getElementById('backBtn');
 
+        inputAniBtn.addEventListener('click', () => {
+            window.location.href = './inputAnimations.html';
+        });
+  </script>
   <script>
     // ---------------- CONFIG ----------------
     const RIVE_SRC = "../assets/settings_hover_v2.riv";   // Path to your .riv file
