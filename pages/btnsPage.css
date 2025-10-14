@@ -52,3 +52,23 @@ h1 {
     font-weight: 600;
     pointer-events: none;
 }
+
+
+#backBtn {
+    float: left;
+    margin: -15px;
+    padding: 10px 15px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: none;
+    background-color: #0565cc;
+    color: white;
+    cursor: pointer;
+}
+
+#backBtn:hover {
+    background-color: #0159b7;
+    margin: -11px;
+    padding: 8px 12px;
+
+}

@@ -6,97 +6,77 @@
   <title>Rive Hover Animation (Boolean)</title>
   <script src="https://unpkg.com/@rive-app/canvas@2.14.0"></script>
   <link rel="stylesheet" href="hoverBased.css"> 
-  <!-- <style>
-      body {
+  <style>
+      /* body {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
         background: #121212;
-      } 
+      }  */
       canvas {
-        width: 200px;
+        /* width: 200px;
         height: 200px;
-        cursor: pointer;
+        cursor: pointer; */
+        margin: 30px;
       }
-  </style> -->
+
+  </style>
   
 </head>
 <body>
   <button id="backBtn">Back</button>
   <h1>Mouse controlled Animation:</h1>
-
   <h3>Hover on the desired image to know what happens!</h3>
-  <canvas id="riveCanvas"></canvas>
-  
+
+  <canvas id="settings" width="300" height="300"></canvas>
+  <canvas id="refresh" width="300" height="300"></canvas>
+
   <script>
-    const inputAniBtn = document.getElementById('backBtn');
-
-        inputAniBtn.addEventListener('click', () => {
-            window.location.href = './inputAnimations.html';
-        });
-  </script>
-  <script>
-    // ---------------- CONFIG ----------------
-    const RIVE_SRC = "../assets/settings_one_gear.riv";   // Path to your .riv file
-    const STATE_MACHINE = "State Machine 1";           // Exact state machine name
-    const INPUT_NAME = "Boolean 1";                    // Boolean input name
-    // ----------------------------------------
-
-    const canvas = document.getElementById("riveCanvas");
-
-    // Create Rive instance
-    const riveInstance = new rive.Rive({
-      src: RIVE_SRC,
-      canvas: canvas,
-      autoplay: true, // Must stay true for State Machine to process booleans
-      stateMachines: STATE_MACHINE,
-      fit: rive.Fit.CONTAIN,
-      alignment: rive.Alignment.CENTER,
-      onLoad: () => {
-        riveInstance.resizeDrawingSurfaceToCanvas();
-        setupHover();
-      }
+    document.getElementById('backBtn').addEventListener('click', () => {
+      window.location.href = './inputAnimations.html';
     });
 
-    // Keep canvas in sync with container
-    const resizeObserver = new ResizeObserver(() => {
-      try { riveInstance.resizeDrawingSurfaceToCanvas(); } catch(e) {}
-    });
-    resizeObserver.observe(canvas);
+    function setupRiveHoverAnimation(canvasId, src, stateMachine, inputName) {
+      const canvas = document.getElementById(canvasId);
 
-    function setupHover() {
-      const inputs = riveInstance.stateMachineInputs(STATE_MACHINE);
-      const hoverInput = inputs.find(i => i.name === INPUT_NAME);
+      const riveInstance = new rive.Rive({
+        src,
+        canvas,
+        autoplay: true,
+        stateMachines: stateMachine,
+        fit: rive.Fit.CONTAIN,
+        alignment: rive.Alignment.CENTER,
+        onLoad: () => {
+          riveInstance.resizeDrawingSurfaceToCanvas();
+          const inputs = riveInstance.stateMachineInputs(stateMachine);
+          const hoverInput = inputs.find(i => i.name === inputName);
 
-      if (!hoverInput) {
-        console.error(`Input "${INPUT_NAME}" not found in state machine "${STATE_MACHINE}".`);
-        console.log("Available inputs:", inputs.map(i => i.name));
-        return;
-      }
+          if (!hoverInput) {
+            console.error(`Input "${inputName}" not found in "${stateMachine}"`);
+            return;
+          }
 
-      console.log(`Found boolean input "${INPUT_NAME}"`);
+          canvas.addEventListener("mouseenter", () => {
+            hoverInput.value = false;
+            setTimeout(() => hoverInput.value = true, 10);
+          });
 
-      canvas.addEventListener("mouseenter", () => {
-        if (!hoverInput) return;
-
-        // Reset the boolean quickly to force re-trigger
-        hoverInput.value = false;   // force transition to idle
-        setTimeout(() => {
-          hoverInput.value = true;  // play hover animation
-        }, 10);  // 10ms delay is enough
-        // console.log("Hover In -> Boolean true (restarted)");
+          canvas.addEventListener("mouseleave", () => {
+            hoverInput.value = false;
+          });
+        }
       });
 
-  canvas.addEventListener("mouseleave", () => {
-    if (!hoverInput) return;
+      const resizeObserver = new ResizeObserver(() => {
+        try { riveInstance.resizeDrawingSurfaceToCanvas(); } catch(e) {}
+      });
+      resizeObserver.observe(canvas);
+    }
 
-    hoverInput.value = false; // back to idle
-    // console.log("Hover Out -> Boolean false");
-  });
-
-}
+    // 👇 Setup multiple Rive animations easily
+    setupRiveHoverAnimation("settings", "../assets/settings_one_gear.riv", "State Machine 1", "Boolean 1");
+    setupRiveHoverAnimation("refresh", "../assets/refresh.riv", "State Machine 1", "hoverOn");
   </script>
-
 </body>
 </html>

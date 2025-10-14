@@ -11,8 +11,9 @@
     <button id="backBtn">Back</button>
     <h1>Keyboard controlled Animation:</h1>
   
-    <h3>Keep pressing Spacebar to see the magic!</h3>
+    <h3>Click on the _Spacebar_ to see the magic!</h3>
     <div id="riveKeyboardContainer"></div>
+    <p id="notification" style="display: none;">Press again! <br/><br/> More clicks = More fun</p>
     
   <script>
     const inputAniBtn = document.getElementById('backBtn');
@@ -28,6 +29,7 @@
   ];
 
   const container = document.getElementById("riveKeyboardContainer");
+  const notification = document.getElementById("notification");
 
   animations.forEach((src, index) => {
     const canvas = document.createElement("canvas");
@@ -55,7 +57,8 @@
                 e.preventDefault(); // stop tab from changing focus
 
                 if (tabTrigger) {
-                    console.log("Found trigger:", tabTrigger.name);
+                    // console.log("Found trigger:", tabTrigger.name);
+                    notification.style.display = "block";
                     // Fire it automatically once after 2 seconds to test
                     // setTimeout(() => {
                         tabTrigger.fire();
