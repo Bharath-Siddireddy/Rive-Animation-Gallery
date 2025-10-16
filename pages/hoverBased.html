@@ -29,8 +29,11 @@
   <h1>Mouse controlled Animation:</h1>
   <h3>Hover on the desired image to know what happens!</h3>
 
-  <canvas id="settings" width="300" height="300"></canvas>
   <canvas id="refresh" width="300" height="300"></canvas>
+  <canvas id="back" width="300" height="300"></canvas>
+  <h3>Hover Loop</h3>
+  <canvas id="settings" width="300" height="300"></canvas>
+  
 
   <script>
     document.getElementById('backBtn').addEventListener('click', () => {
@@ -77,6 +80,7 @@
     // 👇 Setup multiple Rive animations easily
     setupRiveHoverAnimation("settings", "../assets/settings_one_gear.riv", "State Machine 1", "Boolean 1");
     setupRiveHoverAnimation("refresh", "../assets/refresh.riv", "State Machine 1", "hoverOn");
+    setupRiveHoverAnimation("back", "../assets/backHover.riv", "State Machine 1", "hoverOn");
   </script>
 </body>
 </html>

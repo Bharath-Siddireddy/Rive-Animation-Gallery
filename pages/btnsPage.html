@@ -17,18 +17,19 @@
     <canvas class="riveButtonCanvas" id="riveSimpleButtonCanvas"></canvas>
     <!-- <span>Settings</span> -->
   </button>
-  <!-- <button class="riveButton" id="riveHoverButton">
-    <canvas class="riveButtonCanvas" id="riveHoverButtonCanvas"></canvas> -->
-    <!-- <span>Settings</span> -->
-  <!-- </button> -->
+  
+    <!-- <button class="riveButton"> <canvas class="riveButtonCanvas" id="settings" width="300" height="300"></canvas></button>
+    <button class="riveButton"> <canvas class="riveButtonCanvas" id="refresh" width="300" height="300"></canvas></button> -->
+    <button class="riveButton" id="hoverBackBtn"> <canvas class="riveButtonCanvas" id="back"></canvas></button>
 
-    <script>
-        const homePageBtn = document.getElementById('backBtn');
 
-        homePageBtn.addEventListener('click', () => {
-            window.location.href = '../index.html';
-        });
-    </script>
+  <script>
+      const homePageBtn = document.getElementById('backBtn');
+
+      homePageBtn.addEventListener('click', () => {
+          window.location.href = '../index.html';
+      });
+  </script>
   <script>
     const canvas = document.getElementById("riveSimpleButtonCanvas");
     const btn = document.getElementById("riveSimpleButton");
@@ -50,45 +51,7 @@
 
     btn.addEventListener("click", () => alert("Rive button clicked! \n Settings opened"));
 
-
-
-
-
-    /////////////////////
-
-
-
-    //  const riveFile = "settings_(no)hover_v2.riv"; // your exported rive file in same directory
-    // const stateMachineName = "State Machine 1";
-    // const inputName = "Boolean 1";
-    // const btn2 = document.getElementById("riveHoverButton");
-    // // Load Rive
-    // const r = new rive.Rive({
-    //   src: riveFile,
-    //   canvas: document.getElementById("riveHoverButtonCanvas"),
-    //   autoplay: true,
-    //   stateMachines: stateMachineName,
-    //   onLoad: () => {
-    //     // Fit the artboard to the canvas
-    //     r.resizeDrawingSurfaceToCanvas();
-
-    //     // Access the input from the state machine
-    //     const inputs = r.stateMachineInputs(stateMachineName);
-    //     const hoverInput = inputs.find(i => i.name === inputName);
-
-    //     // Attach mouse events
-    //     const canvas = document.getElementById("riveHoverButtonCanvas");
-    //     canvas.addEventListener("mouseenter", () => {
-    //       if (hoverInput) hoverInput.value = true;
-    //     });
-    //     canvas.addEventListener("mouseleave", () => {
-    //       if (hoverInput) hoverInput.value = false;
-    //     });
-    //   }
-    // });
-    // btn2.addEventListener("click", () => alert("Rive button 2 clicked! \n Settings opened"));
-
-//////////////////////////////////////////
   </script>
+  <script src="btnsPage.js"></script>
 </body>
 </html>

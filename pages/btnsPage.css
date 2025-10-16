@@ -45,13 +45,13 @@ h1 {
 }
 
 /* Optional label on top of animation */
-.riveButton span {
+/* .riveButton span {
     position: relative;
     z-index: 1;
     color: #000;
     font-weight: 600;
     pointer-events: none;
-}
+} */
 
 
 #backBtn {

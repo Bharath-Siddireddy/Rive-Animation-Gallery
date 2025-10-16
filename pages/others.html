@@ -82,12 +82,15 @@
     "../assets/others/ghost_time.riv",
     "../assets/others/team1.riv",
     "../assets/others/teamToo.riv",
+    "../assets/others/back.riv",
+    "../assets/others/back2.riv",
   ];
 
   const container = document.getElementById("riveContainer");
 
   animations.forEach((src, index) => {
     const canvas = document.createElement("canvas");
+    canvas.style.backgroundColor = "pink";
     canvas.width = 500;
     canvas.height = 500;
     container.appendChild(canvas);
