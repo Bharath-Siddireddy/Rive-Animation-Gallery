@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <button id="backBtn">Back</button>
+    <div id="lottie-container" style="width:300px;height:300px;"></div>
+
+
+    <script src="https://unpkg.com/lottie-web@5.12.0/build/player/lottie.min.js"></script>
+    <script>
+        const homePageBtn = document.getElementById('backBtn');
+
+        homePageBtn.addEventListener('click', () => {
+            window.location.href = '../../index.html';
+        });
+        var animation = lottie.loadAnimation({
+            container: document.getElementById('lottie-container'), // the dom element
+            renderer: 'svg', // can be 'svg', 'canvas', or 'html'
+            loop: true,
+            autoplay: true,
+            path: '../../assets/lottie_animations/OCT_logo.json' // path to your lottie JSON file
+        });
+    </script>
+</body>
+</html>

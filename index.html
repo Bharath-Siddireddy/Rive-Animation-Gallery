@@ -26,6 +26,7 @@
 </head>
 <body>
     <h1>Rive Animation Gallery:</h1>
+    <button id="lottie_Btn">Switch to Lottie Animations</button>
     <button id="mascot_Page">BeingZero Pvt Ltd Mascot</button>
     <button id="others_Page">Other animations</button>
 
@@ -48,6 +49,10 @@
         <p></p>
     </div>
     <script>
+        const lottieBtn = document.getElementById('lottie_Btn');
+        lottieBtn.addEventListener('click', () => {
+            window.location.href = './pages/lottie/index_lottie.html';
+        });
         const mascotBtn = document.getElementById('mascot_Page');
         const othersBtn = document.getElementById('others_Page');
         const btnsPageBtn = document.getElementById('buttons_Page');
