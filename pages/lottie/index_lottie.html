@@ -3,12 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
+    <title>Lottie Animations</title>
+    <style>
+        button {
+            margin: 15px;
+            padding: 10px 15px;
+            font-size: 18px;
+            border-radius: 8px;
+            border: none;
+            background-color: #0565cc;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0159b7;
+            margin: 16px;
+            padding: 8px 13px;
+
+        }
+    </style>
 </head>
 <body>
     <button id="backBtn">Back</button>
     <div id="lottie-container" style="width:300px;height:300px;"></div>
+    <div id="lottie-container2" style="width:300px;height:300px;"></div>
+
+<div>
+    <h2>About Lottie:</h2>
+    <p>Lottie is an open-source animation framework that allows you to render high-quality 2D animations similar to Rive.</p>
+
+    <h3>Properties:</h3>
+    <ul>
+        <li>Free to use and open-source</li>
+        <li>Provides a plugin that can work in Figma, Framer and other softwares</li>
+        <li>Uses JSON or .lottie format for lightweight animations</li>
+        <li>Cross-platform support (Web, iOS, Android, React, Flutter, etc.)</li>
+        <li>Scalable vector-based animations with no quality loss</li>
+        <li>Supports looping, autoplay, and playback control via JavaScript</li>
+        <li>Compatible with After Effects through the Bodymovin plugin</li>
+        <li>Highly optimized — small file sizes and fast loading</li>
+        <li>Interactive animations possible using Lottie Interactivity library</li>
+    </ul>
+    <p></p>
+</div>
+
 
 
     <script src="https://unpkg.com/lottie-web@5.12.0/build/player/lottie.min.js"></script>
@@ -18,12 +57,21 @@
         homePageBtn.addEventListener('click', () => {
             window.location.href = '../../index.html';
         });
+        
         var animation = lottie.loadAnimation({
             container: document.getElementById('lottie-container'), // the dom element
             renderer: 'svg', // can be 'svg', 'canvas', or 'html'
             loop: true,
             autoplay: true,
             path: '../../assets/lottie_animations/OCT_logo.json' // path to your lottie JSON file
+        });
+
+        var animation2 = lottie.loadAnimation({
+            container: document.getElementById('lottie-container2'), // the dom element
+            renderer: 'svg', // can be 'svg', 'canvas', or 'html'
+            loop: true,
+            autoplay: true,
+            path: '../../assets/lottie_animations/CTS_logo.json' // path to your lottie JSON file
         });
     </script>
 </body>
