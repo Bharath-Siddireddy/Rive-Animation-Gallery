@@ -29,28 +29,30 @@
 
     <h1>Lottie Animations: </h1>
     <p> (Under progress) </p>
-    <div id="lottie-container" style="width:300px;height:300px;"></div>
-    <!-- <div id="lottie-container2" style="width:300px;height:300px;"></div> -->
-    <div id="lottie-container3" style="width:300px;height:300px;"></div>
+    <div style="margin-top: -300px;">
+        <div id="lottie-container" style="width:300px; height:300px;"></div>
+        <!-- <div id="lottie-container2" style="width:300px;height:300px;"></div> -->
+        <div id="lottie-container3" style="display: flex; gap: 20px; width:300px; height:300px;"></div>
+    </div>
+    <br/><br/>
+    <div>
+        <h2>About Lottie:</h2> 
+        <p>Lottie is an open-source animation framework that allows you to render high-quality 2D animations similar to Rive.</p>
 
-<div>
-    <h2>About Lottie:</h2> 
-    <p>Lottie is an open-source animation framework that allows you to render high-quality 2D animations similar to Rive.</p>
-
-    <h3>Properties:</h3>
-    <ul>
-        <li>Free to use and open-source</li>
-        <li>Provides a plugin that can work in Figma, Framer and other softwares</li>
-        <li>Uses JSON or .lottie format for lightweight animations</li>
-        <li>Cross-platform support (Web, iOS, Android, React, Flutter, etc.)</li>
-        <li>Scalable vector-based animations with no quality loss</li>
-        <li>Supports looping, autoplay, and playback control via JavaScript</li>
-        <li>Compatible with After Effects through the Bodymovin plugin</li>
-        <li>Highly optimized — small file sizes and fast loading</li>
-        <li>Interactive animations possible using Lottie Interactivity library</li>
-    </ul>
-    <p></p>
-</div>
+        <h3>Properties:</h3>
+        <ul>
+            <li>Free to use and open-source</li>
+            <li>Provides a plugin that can work in Figma, Framer and other softwares</li>
+            <li>Uses JSON or .lottie format for lightweight animations</li>
+            <li>Cross-platform support (Web, iOS, Android, React, Flutter, etc.)</li>
+            <li>Scalable vector-based animations with no quality loss</li>
+            <li>Supports looping, autoplay, and playback control via JavaScript</li>
+            <li>Compatible with After Effects through the Bodymovin plugin</li>
+            <li>Highly optimized — small file sizes and fast loading</li>
+            <li>Interactive animations possible using Lottie Interactivity library</li>
+        </ul>
+        <p></p>
+    </div>
 
 
 
@@ -62,20 +64,26 @@
             window.location.href = '../../index.html';
         });
         
-        var animation = lottie.loadAnimation({
-            container: document.getElementById('lottie-container'), // the dom element
+            var animation2 = lottie.loadAnimation({
+            container: document.getElementById('lottie-container3'), // the dom element
             renderer: 'svg', // can be 'svg', 'canvas', or 'html'
             loop: true,
             autoplay: true,
             path: '../../assets/lottie_animations/OCT_logo.json' // path to your lottie JSON file
         });
-
+        // var animation2 = lottie.loadAnimation({
+        //     container: document.getElementById('lottie-container3'), // the dom element
+        //     renderer: 'svg', // can be 'svg', 'canvas', or 'html'
+        //     loop: true,
+        //     autoplay: true,
+        //     path: '../../assets/lottie_animations/CTS_logo_2.json' // path to your lottie JSON file
+        // });
         var animation2 = lottie.loadAnimation({
             container: document.getElementById('lottie-container3'), // the dom element
             renderer: 'svg', // can be 'svg', 'canvas', or 'html'
             loop: true,
             autoplay: true,
-            path: '../../assets/lottie_animations/CTS_logo_2.json' // path to your lottie JSON file
+            path: '../../assets/lottie_animations/CTS_logo_refined.json' // path to your lottie JSON file
         });
     </script>
 </body>
